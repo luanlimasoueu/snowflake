@@ -1,0 +1,35 @@
+create or replace warehouse dwh_wh;
+create or replace database dbt_db;
+create or replace schema dbt_db.prod;
+
+create or replace storage integration snow_obj
+ type = external_stage
+ storage_provider = s3
+ enabled = true
+ storage_aws_role_arn = ''
+ storage_allowed_locations = ('s3://16-snowflake/');
+
+desc integration snow_obj;
+
+
+create or replace file format csv_format type = csv field_delimiter = ';' skip_header = 1 null_if = ('NULL', 'null') empty_field_as_null = true;
+
+
+
+create or replace stage snow_stage_2023
+ storage_integration = snow_obj
+ url = 's3://16-snowflake/'
+ file_format = csv_format;
+
+ create or replace table cliente_1
+( 
+emailAddress varchar(200),
+firstName varchar(20),
+lastName varchar(20),
+phoneNumber varchar(20),
+userId int
+)
+
+
+copy into cliente_1 from @snow_stage_2023
+ON_ERROR = 'skip_file';
