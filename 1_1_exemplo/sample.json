@@ -1,0 +1,18 @@
+{
+    "users":[
+        {
+            "emailAddress":"first@gmail.com",
+            "firstName": "Eu",
+            "lastName": "Você",
+            "phoneNumber": "12345",
+            "userId": 1
+        },
+        {
+            "emailAddress":"secong@gmail.com",
+            "firstName": "Você",
+            "lastName": "Eu",
+            "phoneNumber": "123456",
+            "userId": 1
+        }
+    ]
+}
