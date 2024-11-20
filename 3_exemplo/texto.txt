@@ -1,0 +1,24 @@
+CREATE WAREHOUSE FIRST_WH;
+USE WAREHOUSE FIRST_WH;
+
+CREATE TABLE minhasdatas_1 (
+FName VARCHAR(35) NOT NULL,
+HDate DATETIME NOT NULL)
+
+
+INSERT INTO FIRST_DATABASE."PUBLIC".MINHASDATAS_1 
+(FName,  HDate)
+VALUES
+('James', '2002-01-23'),
+('John',  '2005-03-23'),
+('John',  '2005-03-22'),
+('Smith',  '2005-03-22'),
+('James', '2002-01-01')
+
+
+select FName,
+HDate,
+max(HDate) OVER (PARTITION  BY FName) AS Ultima_Compra 
+from minhasdatas_1
+GROUP BY 1,2
+QUALIFY  Ultima_Compra = HDate
