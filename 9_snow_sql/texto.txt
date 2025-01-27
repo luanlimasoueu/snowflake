@@ -1,0 +1,28 @@
+https://www.datacamp.com/tutorial/introduction-to-snowflake-for-beginners
+
+
+PUT file://C:\Users\diamonds.csv @my_local_files;
+
+
+CREATE TABLE diamonds (carat FLOAT,cut VARCHAR(255),color VARCHAR(255),clarity VARCHAR(255),depth FLOAT,table FLOAT,price INTEGER,x FLOAT,y FLOAT,z FLOAT);
+
+CREATE TABLE diamonds (
+ carat FLOAT,
+ cut VARCHAR(255),
+ color VARCHAR(255),
+ clarity VARCHAR(255),
+ depth FLOAT,
+ table_ FLOAT,
+ price INTEGER,
+ x FLOAT,
+ y FLOAT,
+ z FLOAT
+);
+
+
+
+#SNOWFLAKE
+USE NEW_DB.PUBLIC;
+
+
+SELECT COUNT(*) FROM diamonds;
