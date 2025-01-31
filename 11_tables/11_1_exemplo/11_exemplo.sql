@@ -1,4 +1,3 @@
-USE NEW_DB.PUBLIC;
 
 CREATE OR REPLACE TABLE employees (
     EMPLOYEE_ID INT PRIMARY KEY,
@@ -9,8 +8,4 @@ CREATE OR REPLACE TABLE employees (
     SALARY NUMBER(10,2)
 );
 
-CREATE OR REPLACE FILE FORMAT my_csv_format -- Can be named anything
- TYPE = CSV
- FIELD_DELIMITER = ','
- SKIP_HEADER = 1;  -- Assuming the first row is a header
  

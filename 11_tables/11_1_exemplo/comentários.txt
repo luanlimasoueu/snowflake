@@ -1,0 +1,34 @@
+https://www.datacamp.com/tutorial/introduction-to-snowflake-for-beginners
+
+CREATE DATABASE IF NOT EXISTS new_db;
+
+USE DATABASE new_db;
+
+CREATE OR REPLACE FILE FORMAT my_csv_format -- Can be named anything
+ TYPE = CSV
+ FIELD_DELIMITER = ','
+ SKIP_HEADER = 1;  -- Assuming the first row is a header
+
+CREATE OR REPLACE STAGE my_local_files;
+
+PUT file:///C:/Users/my_employees.csv @my_local_files;
+
+
+CREATE OR REPLACE TABLE employees (
+    EMPLOYEE_ID INT PRIMARY KEY,
+    FIRST_NAME STRING,
+    LAST_NAME STRING,
+    EMAIL STRING ,
+    HIRE_DATE STRING,
+    SALARY NUMBER(10,2)
+);
+
+COPY INTO employees
+ FROM @my_local_files/my_employees.csv
+ FILE_FORMAT = my_csv_format;
+
+
+SELECT COUNT(*) FROM employees;
+
+
+SELECT *  FROM employees;
