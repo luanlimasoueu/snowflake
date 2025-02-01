@@ -1,0 +1,3 @@
+https://thinketl.com/window-functions-in-snowflake-snowpark/
+
+https://thinketl.com/udfs-in-snowflake-snowpark/
