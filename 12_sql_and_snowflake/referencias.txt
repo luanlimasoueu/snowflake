@@ -1,0 +1,1 @@
+https://medium.com/snowflake/snowpark-with-python-part-2-f96e3cbbb35a
