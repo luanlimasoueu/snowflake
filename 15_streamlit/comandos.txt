@@ -1,0 +1,5 @@
+conda activate meu_ambiente
+pip install snowflake-connector-python
+pip install snowflake-snowpark-python
+python -m streamlit run 15_exemplo.py
+
